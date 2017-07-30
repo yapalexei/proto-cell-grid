@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>ProtoCellGrid</title><link rel="stylesheet" type="text/css" href="proto-cell-grid.css"></head><body><div class="grid-container"><h1>{ProtoCellGrid}</h1><div class="controls"><label for="rows">rows</label><input id="rows" min="1" max="10" type="number" class="rows"><label for="columns">columns</label><input id="columns" min="1" max="10" type="number" class="columns"></div><div class="grid"></div></div><script type="text/javascript" src="proto-cell-grid.js"></script><script type="text/javascript">// init properties of grid
+	var gridProps = {
+	        columns: 5,
+	        rows: 3,
+	        width: 450,
+	        height: 250,
+	        gridEl: document.body.querySelector('.grid'),
+	        cellType: 'div',
+	        cellContentType: 'span'
+	    };
+
+	var grid = new Grid(gridProps);
+	var rowsEl = document.body.querySelector('#rows');
+	var columnsEl = document.body.querySelector('#columns');
+
+
+	// Init Grid and listeners for the inputs.
+	grid.init();
+	rowsEl.value = gridProps.rows;
+	rowsEl.addEventListener('input', function(e) {
+	    grid.update({rows: e.target.value});
+	});
+	columnsEl.value = gridProps.columns;
+	columnsEl.addEventListener('input', function(e) {
+	    grid.update({columns: e.target.value});
+	});</script></body></html>
